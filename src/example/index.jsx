@@ -1,23 +1,23 @@
 /* eslint-disable react/prefer-stateless-function, no-console */
 
-import React, { Component } from 'react';
+import React from 'react';
 import html2canvas from '../html2canvas/src';
 import logo from '../logo.svg';
 
-class Example extends Component {
-  static cloneElement() {
+function Example () {
+  function cloneElement() {
     const targetElement = document.getElementById('source');
     html2canvas(targetElement).then(canvas => {
+      console.log('what is html2canvas', html2canvas);
       console.log('targetElement', targetElement);
       document.getElementById('target').appendChild(canvas);
     });
   }
-  render() {
     return (
       <div>
         <section>
           <img src={logo} className="App-logo" alt="logo" />
-          <button onClick={this.cloneElement}>click</button>
+          <button onClick={cloneElement}>click</button>
         </section>
         <section id="source">
           <div className="someClass">test</div>
@@ -25,7 +25,6 @@ class Example extends Component {
         <section id="target" />
       </div>
     );
-  }
 }
 
 export default Example;
