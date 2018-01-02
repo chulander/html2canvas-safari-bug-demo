@@ -1,23 +1,14 @@
 module.exports = {
-  extends: [
-    'airbnb',
-    'prettier',
-    'prettier/react',
-  ],
-  plugins: [
-    'react',
-    'jsx-a11y',
-    'import',
-    'prettier',
-  ],
+  extends: ['airbnb', 'prettier', 'prettier/react'],
+  plugins: ['react', 'jsx-a11y', 'import', 'prettier'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 7,
-    sourceType: "module",
+    sourceType: 'module',
     ecmaFeatures: {
       impliedStrict: true,
       jsx: true,
-      experimentalObjectRestSpread: true
+      experimentalObjectRestSpread: true,
     },
   },
   env: {
@@ -31,6 +22,8 @@ module.exports = {
     'no-shadow': 0,
     'import/prefer-default-export': 0,
     'no-underscore-dangle': 0,
-    'camelcase': 'off',
-  }
+    camelcase: 'off',
+    'react/prefer-stateless-function': 1,
+    'react/jsx-filename-extension': 1,
+  },
 };

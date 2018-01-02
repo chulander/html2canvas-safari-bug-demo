@@ -109,6 +109,7 @@ module.exports = {
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx|mjs)$/,
+        exclude: /(src\/html2canvas|src\/registerServiceWorker\.js)/,
         enforce: 'pre',
         use: [
           {
@@ -220,6 +221,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      '__DEV__': true, // html2canvas dependency
+      '__VERSION__': 'demo-bug' // html2canvas dependency
     }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
